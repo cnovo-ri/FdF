@@ -108,7 +108,7 @@ int		main()
 	t_struct	key;
 
 	key.mlx = mlx_init();
-	key.win = mlx_new_window(key.mlx, 1600, 900, "first window");
+	key.win = mlx_new_window(key.mlx, 800, 600, "first window");
 	mlx_key_hook(key.win, ft_key_function, 0);
 	//	mlx_expose_hook(key.win, expose_hook, &key);
 	mlx_mouse_hook(key.win, mouse_hook, &key);

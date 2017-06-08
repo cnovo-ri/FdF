@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME=MLX
+NAME=FdF
 
-SRC=exercice.c
+SRC=draw.c pixel_put.c check_file.c main.c
 
 LIB=./libft/libft.a
 
@@ -32,7 +32,7 @@ $(NAME): $(OBJ)
 	@make -C libft
 	@make -C minilibx_macos
 	@$(CC) $(FLAGS) -c $(SRC) -I . -I ./libft
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME) $(MLX_LIB) $(MLX) -L ./libft -lft
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME) -I./ $(MLX_LIB) $(MLX) -L ./libft -lft
 	@echo "\033[1m\033[32m[ ✔ ]Compiled :\033[0m $(NAME) ࿇"
 
 clean:

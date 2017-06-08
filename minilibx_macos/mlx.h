@@ -55,7 +55,7 @@ void	*mlx_init();
 
 
 /*
-**	Basic actions
+** Basic actions
 */
 
 void	*mlx_new_window(void *mlx_ptr, int size_x, int size_y, char *title);

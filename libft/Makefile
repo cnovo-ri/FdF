@@ -78,7 +78,8 @@ SRC=ft_memset.c \
 	ft_lstmap.c \
 	ft_count_words.c \
 	ft_swap.c \
-	ft_sqrt.c
+	ft_sqrt.c \
+	get_next_line.c
 
 OBJ=ft_memset.o \
 	ft_bzero.o \
@@ -146,7 +147,8 @@ OBJ=ft_memset.o \
 	ft_lstmap.o \
 	ft_count_words.o \
 	ft_swap.o \
-	ft_sqrt.o
+	ft_sqrt.o \
+	get_next_line.o
 
 FLAGS=-Wall -Wextra -Werror
 

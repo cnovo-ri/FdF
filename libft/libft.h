@@ -29,6 +29,17 @@
 # define GREY		"\033[1;37m"
 # define NORMAL		"\033[0m"
 
+# define BUFF_SIZE 4096
+
+typedef struct		s_struct
+{
+	char			*s[5000];;
+	int				r;
+	char			buf[BUFF_SIZE + 1];;
+	char			*t;
+	char			*t_b;
+}					t_struct;
+
 typedef struct		s_list
 {
 	void			*content;
@@ -36,6 +47,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int					get_next_line(int const fd, char **line);
 int					ft_sqrt(int nb);
 int					ft_swap(int *a, int *b);
 int					ft_count_words(const char *s, char c);
