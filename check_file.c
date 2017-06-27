@@ -36,11 +36,11 @@ int		**get_tab(int nb_line, int len_line)
 
 	index = 0;
 	if (!(tab = (int **)malloc(sizeof(int *) * nb_line + 1)))
-		print_error_type("Error : Dynamic table allocation problem.");
+		print_error_type("Error : Dynamic table allocation problem.\n");
 	while (index < nb_line)
 	{
 		if (!(tab[index] = (int *)malloc(sizeof(int) * len_line + 1)))
-			print_error_type("Error : Dynamic table allocation problem.");
+			print_error_type("Error : Dynamic table allocation problem.\n");
 		index++;
 	}
 	tab[index] = NULL;

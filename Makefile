@@ -12,7 +12,7 @@
 
 NAME=FdF
 
-SRC=draw.c pixel_put.c check_file.c main.c
+SRC=draw.c check_file.c main.c
 
 LIB=./libft/libft.a
 

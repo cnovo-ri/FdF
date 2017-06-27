@@ -1,38 +1,48 @@
 
 #include "fdf.h"
 
-int		draw_vertical_line(t_var var)
+int		line_put(t_var var, int x, int y)
 {
-	int dx;
-	int dy;
-	int x;
-	int y;
-
-	x = var.x1;
-	dx = var.x2 - var.x1;
-	dy = var.y2 - var.y1;
-	while (x <= var.x2 && dx > 0)
+	if (x > 0 && y > 0 && x < SCREEN_X && y < SCREEN_Y)
 	{
-		y = var.y1 + dy * (x - var.x1) / dx;
-		line_put(var, y + var.pos_x, x + var.pos_y);
-		x++;
+		if ((var.z1 > 0 && var.z1 <= 10) || (var.z2 > 0 && var.z2 <= 10))
+		{
+			var.var[(y * var.size_line) + (x * (var.bpp / 8))] = -var.b;
+			var.var[(y * var.size_line) + (x * (var.bpp / 8)) + 1] = -var.g;
+			var.var[(y * var.size_line) + (x * (var.bpp / 8)) + 2] = -var.r;
+		}
+		else
+		{
+			var.var[(y * var.size_line) + (x * (var.bpp / 8))] = var.b;
+			var.var[(y * var.size_line) + (x * (var.bpp / 8)) + 1] = var.g;
+			var.var[(y * var.size_line) + (x * (var.bpp / 8)) + 2] = var.r;
+		}
 	}
 	return (0);
 }
 
-int		draw_horizontal_line(t_var var)
+int			draw_line(t_var var)
 {
-	int dx;
-	int dy;
 	int x;
 	int y;
 
-	y = var.y1;
-	dx = var.x2 - var.x1;
-	dy = var.y2 - var.y1;
-	while (y <= var.y2 && dy > 0)
+	var.dx = var.x2 - var.x1;
+	var.dy = var.y2 - var.y1;
+	if (var.flag == 1)
 	{
-		x = var.x1 + dx * (y - var.y1) / dy;
+		x = var.x1;
+		while (x <= var.x2 && var.dx > 0)
+		{
+			y = var.y1 + var.dy * (x - var.x1) / var.dx;
+			line_put(var, y + var.pos_x, x + var.pos_y);
+			x++;
+		}
+		return (0);
+	}
+	y = var.y1;
+	while (y <= var.y2 && var.dy > 0)
+	{
+		x = var.x1 + var.dx * (y - var.y1) / var.dy;
 		line_put(var, y + var.pos_x, x + var.pos_y);
 		y++;
 	}
@@ -57,7 +67,6 @@ int		line_tab_x(t_var var)
 {
 	int x;
 	int y;
-//	int z;
 
 	x = 0;
 	while (x < var.nb_line)
@@ -72,7 +81,7 @@ int		line_tab_x(t_var var)
 			var.x2 = x;
 			var.y2 = ((y + 1) < var.len_line) ? y + 1 : y;
 			converting_coord(&var);
-			displine(&var);
+			draw_line(var);
 			y++;
 		}
 		x++;
@@ -85,9 +94,9 @@ int		line_tab_y(t_var var)
 {
 	int x;
 	int y;
-//	int z;
-
+	
 	y = 0;
+	var.flag = 1;
 	while (y < var.len_line)
 	{
 		x = 0;
@@ -100,7 +109,7 @@ int		line_tab_y(t_var var)
 			var.x2 = ((x + 1) < var.nb_line) ? x + 1 : x;
 			var.y2 = y;
 			converting_coord(&var);
-			displine(&var);
+			draw_line(var);
 			x++;
 		}
 		y++;

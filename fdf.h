@@ -2,20 +2,19 @@
 #ifndef FDF_H
 # define FDF_H
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
 # include "libft/libft.h"
 # include "minilibx_macos/mlx.h"
 
-# define SCREEN_X 1600
-# define SCREEN_Y 900
+# define SCREEN_X 800
+# define SCREEN_Y 600
 # define KEYPRESS 2
 # define KEYPRESSMASK (1L << 0)
 
 typedef struct		s_var
 {
+	int				dx;
+	int				dy;
+	int				flag;
 	int				nb_line;
 	int				len_line;
 	int				len_cmp;
@@ -56,13 +55,9 @@ int					**get_tab(int nb_line, int len_line);
 int					**write_tab(int **tab, t_var *var, char *argv);
 int					line_tab_x(t_var var);
 int					line_tab_y(t_var var);
-int					draw_horizontal_line(t_var var);
-int					draw_vertical_line(t_var var);
-void				displine(t_var *var);
-void				swap_coord(t_var *var);
-int					ft_abs(int val);
 void				converting_coord(t_var *var);
 int					fdf_init(t_var *var);
 int					line_put(t_var var, int x, int y);
+int					draw_line(t_var var);
 
 #endif

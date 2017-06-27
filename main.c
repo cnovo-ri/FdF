@@ -1,10 +1,21 @@
 
 #include "fdf.h"
 
+void	center_img(t_var *var)
+{
+	if (!var->pos_x && !var->pos_y)
+	{
+		var->pos_x = (SCREEN_X / 2) - (var->len_line * var->space / 2);
+		var->pos_y = (SCREEN_Y / 2) - (var->nb_line * var->space / 2);
+	}
+}
+
 int			cmd_key(int key, t_var *var)
 {
-	(key == 78) ? var->space -= 1 : var->space;
-	(key == 69) ? var->space += 1 : var->space;
+	if (var->space >= 2)
+		(key == 78) ? var->space -= 1 : var->space;
+	if (var->space <= 200)
+		(key == 69) ? var->space += 1 : var->space;
 	(key == 13) ? var->pos_y -= 50 : var->pos_y;
 	(key == 1) ? var->pos_y += 50 : var->pos_y;
 	(key == 2) ? var->pos_x += 50 : var->pos_x;
@@ -12,8 +23,10 @@ int			cmd_key(int key, t_var *var)
 	(key == 15) ? var->r += 5 : var->r;
 	(key == 5) ? var->g += 5 : var->g;
 	(key == 11) ? var->b += 5 : var->b;
-	(key == 116) ? var->z += 1 : var->z;
-	(key == 121) ? var->z -= 1 : var->z;
+	if (var->z <= 126)
+		(key == 116) ? var->z += 1 : var->z;
+	if (var->z >= -45)
+		(key == 121) ? var->z -= 1 : var->z;
 	if (key == 53)
 		exit(EXIT_SUCCESS);
 	mlx_destroy_image(var->mlx, var->img);
@@ -44,8 +57,6 @@ void		color_init(t_var *var)
 int			main(int argc, char **argv)
 {
 	t_var	var;
-	//int		x;
-//	int		y;
 
 	color_init(&var);
 	var.argv = argv[1];
