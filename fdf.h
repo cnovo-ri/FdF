@@ -3,7 +3,7 @@
 # define FDF_H
 
 # include "libft/libft.h"
-# include "minilibx_macos/mlx.h"
+# include <mlx.h>
 
 # define SCREEN_X 800
 # define SCREEN_Y 600
