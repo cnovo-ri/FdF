@@ -6,7 +6,7 @@
 #    By: cnovo-ri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/15 13:14:57 by cnovo-ri          #+#    #+#              #
-#    Updated: 2017/10/31 05:06:02 by cnovo-ri         ###   ########.fr        #
+#    Updated: 2017/11/01 03:43:22 by cnovo-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ $(NAME) : $(OBJS)
 
 clean :
 	@rm -f $(OBJS)
-	@echo "\033[1m\033[31m[ ✔ ]Deleting succes :\033[0m OBJS"
+	@echo "\033[1m\033[31m[ ✔ ]Deleting succes :\033[0m $(OBJS)"
 
 fclean : clean
 	@rm -f $(NAME)

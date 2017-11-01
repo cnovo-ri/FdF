@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cnovo-ri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/01 00:44:50 by cnovo-ri          #+#    #+#             */
+/*   Updated: 2017/11/01 02:55:07 by cnovo-ri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
@@ -5,8 +16,8 @@
 # include "libft/libft.h"
 # include <mlx.h>
 
-# define SCREEN_X 800
-# define SCREEN_Y 600
+# define SCREEN_X 1600
+# define SCREEN_Y 900
 # define KEYPRESS 2
 # define KEYPRESSMASK (1L << 0)
 

@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cnovo-ri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/01 00:43:06 by cnovo-ri          #+#    #+#             */
+/*   Updated: 2017/11/01 02:52:55 by cnovo-ri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fdf.h"
 
-int		line_put(t_var var, int x, int y)
+int			line_put(t_var var, int x, int y)
 {
 	if (x > 0 && y > 0 && x < SCREEN_X && y < SCREEN_Y)
 	{
@@ -49,7 +60,7 @@ int			draw_line(t_var var)
 	return (0);
 }
 
-void	converting_coord(t_var *var)
+void		converting_coord(t_var *var)
 {
 	var->x1 *= var->space;
 	var->y1 *= var->space;
@@ -63,7 +74,7 @@ void	converting_coord(t_var *var)
 	var->y2 += var->z;
 }
 
-int		line_tab_x(t_var var)
+int			line_tab_x(t_var var)
 {
 	int x;
 	int y;
@@ -90,11 +101,11 @@ int		line_tab_x(t_var var)
 	return (0);
 }
 
-int		line_tab_y(t_var var)
+int			line_tab_y(t_var var)
 {
 	int x;
 	int y;
-	
+
 	y = 0;
 	var.flag = 1;
 	while (y < var.len_line)
